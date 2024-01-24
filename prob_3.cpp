@@ -9,7 +9,7 @@ int romanToInt(string s)
 
     // to create a map
     int sum=0;
-    map<char, int> roman{
+    map<char, int> roman{   //MAP TABLE WHICH STORE PAIR DATA ASSOCIATIVE CONTAINER
 
         {'I', 1},
         {'V', 5},
@@ -24,9 +24,9 @@ int romanToInt(string s)
     for (int i = 0; i < s.length(); i++)
     {
 
-        if (roman[s[i]] < roman[s[i + 1]])
+        if (roman[s[i]] < roman[s[i + 1]])  //RULE: read from left to right and larger to smaller
         { // IV
-            sum += roman[s[i + 1]] - roman[s[i]];
+            sum += roman[s[i + 1]] - roman[s[i]]; //if the sequence is occure where the smaller occure first then subtrict it from larger roman integer
             i++;
         }
         else
@@ -38,7 +38,7 @@ int romanToInt(string s)
 }
 
 int main()
-{
+{ //good
 
     string s1 = "VIX";
     cout << romanToInt(s1);
