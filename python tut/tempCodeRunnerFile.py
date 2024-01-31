@@ -1,2 +1,1 @@
-print(True)
-print(False)
+ A1.create_pin()
