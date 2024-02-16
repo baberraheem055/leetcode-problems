@@ -1,9 +1,19 @@
 class Atm:
     #constructor in python class
-    def __init__(self):
+    #The purpose of self is to access and manipulate attributes and methods of the current instance.
+    #self is a reference to the current instance of a class. When you define methods within a class in Python, you explicitly include self as the first parameter in the method definition.
+    def __init__(self):      
      self.pin=""
      self.balance = 0
-     self.menu()
+     print(id(self))
+
+     #lets print the data inside the constructor
+    def display(self):
+      print('your initial pin and balance is {} , {} '.format(self.pin,self.balance))
+      #{} placeholder
+      self.menu()
+
+     #string constructor
 
     def menu(self):
        userinput=input('''
@@ -31,6 +41,7 @@ class Atm:
           print('bye')
 
 #to define a methord for pin creation
+          
     def create_pin(self):
           pin=input('enter your pin :\n')
           self.pin=pin
@@ -79,18 +90,23 @@ class Atm:
 #to create an object of a class 
 
 while True:
- A1=Atm()
- A1.deposit()
+ A1=Atm()            
+ '''A1.deposit()
  A1.withdraw_amount()
  A1.check_balance()
-
- #let we create anther object (instance of the class for anther user)
- A2=Atm()
+ id(A1)'''
+ print(id(A1))       # here note that both the id's location address are same for A1 and self. hence actually both are same (object of class) == self keyword 
+                     #let we create anther object (instance of the class for anther user)
+ '''A2=Atm()
  A2.deposit()
  A2.withdraw_amount()
-
+ '''
  #Similarly we can create further objects for many users 
  #so this is the speciality of an object which keep each recode separte 
+
+ #let create an object of the class which should print the data inside the  constructor
+ A3 = Atm()
+ A3.display()
  ch=input("do you want to go to main menu (y/n) ")
  if ch.lower() != 'y':
     break
