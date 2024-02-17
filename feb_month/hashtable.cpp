@@ -4,13 +4,13 @@
 using namespace std;
 class Hashtable
 {
-private:
-    vector<list<int>> table;
+
+    vector<list<int>> table;      //a vector named table where each element of the vector is a list of integers
     int size;
 
     int Hash_function(int key)
     {
-        return key % size;
+        return key % size;      //hash funtion
     }
 
 public:
@@ -18,7 +18,7 @@ public:
     Hashtable(int table_size)
     {
         size = table_size;
-        table.resize(size); // Resize the table vector to accommodate the specified number of buckets
+        table.resize(size);    //Resize the table vector to accommodate the specified number of buckets
     }
 
     // we can declare the constructor through Member initilizer list
@@ -32,15 +32,14 @@ public:
 
     void INSERT(int key)
     {
-        int index;
-        index = Hash_function(key);
+        int index = Hash_function(key);
         table[index].push_back(key);
     }
 
     bool SEARCH(int key)
     {
         int index = Hash_function(key);
-        for (int value : table[index])
+        for (int value : table[index])   //range-based for loop, 
         {
             if (value == key)
             {
@@ -66,9 +65,13 @@ public:
     }
 };
 int main()
-{
+{   //we can also initilize array like this
+    vector<int> arr = {4, 5, 3, 7, 8, 5, 2};
+    cout<<arr.size();
+
     int arr[] = {4, 5, 3, 7, 8, 5, 2};
     int size = sizeof(arr) / sizeof(arr[0]);
+    cout<<size;
     int element;
     char ch;
 
