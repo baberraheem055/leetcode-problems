@@ -38,7 +38,7 @@ int Roman_to_int(string roman){
     for (int i = 0; i < len; i++)
     {
 
-        if (mymap[roman[i]] < mymap[roman[i + 1]])
+        if (i < len - 1 &&  mymap[roman[i]] < mymap[roman[i + 1]])
         {
 
             sum += mymap[roman[i + 1]] - mymap[roman[i]];
